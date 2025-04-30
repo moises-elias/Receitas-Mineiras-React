@@ -1,5 +1,5 @@
 import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
-import App from "./components/Layout/MainLayout";
+import { MainLayout as App } from "./components/Layout/";
 import { Home, ErrorPage, Recipe, SurpriseRecipe, UnderConstructionPage } from "./pages";
 
 function AppRouter() {
@@ -22,6 +22,10 @@ function AppRouter() {
           element: <SurpriseRecipe />,
         },
         {
+          path: "about",
+          loader: () => redirect("/under-construction"),
+        },
+        {
           path: "/login",
           loader: () => redirect("/under-construction"),
         },
@@ -35,10 +39,6 @@ function AppRouter() {
         },
         {
           path: "/category/:category",
-          loader: () => redirect("/under-construction"),
-        },
-        {
-          path: "about",
           loader: () => redirect("/under-construction"),
         },
       ],
